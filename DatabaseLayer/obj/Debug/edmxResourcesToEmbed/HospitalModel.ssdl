@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Mvc_HospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountTypeTable">
+    <Key>
+      <PropertyRef Name="AccountTypeID" />
+    </Key>
+    <Property Name="AccountTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DoctorAppointTable">
+    <Key>
+      <PropertyRef Name="DoctorAppointID" />
+    </Key>
+    <Property Name="DoctorAppointID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorID" Type="int" Nullable="false" />
+    <Property Name="PatientID" Type="int" Nullable="false" />
+    <Property Name="DoctorTimeSlotID" Type="int" Nullable="false" />
+    <Property Name="AppointDate" Type="date" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="IsFeeSubmit" Type="bit" Nullable="false" />
+    <Property Name="IsChecked" Type="bit" Nullable="false" />
+    <Property Name="TransectionID" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DoctorComment" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DoctorTable">
+    <Key>
+      <PropertyRef Name="DoctorID" />
+    </Key>
+    <Property Name="DoctorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Fees" Type="float" Nullable="false" />
+    <Property Name="Splztion" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ClinicAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="PermanentAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ClinicPhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="PerDayMaxAppitmnt" Type="int" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="300" />
+    <Property Name="AccountTypeID" Type="int" Nullable="false" />
+    <Property Name="AccountNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GenderID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DoctorTimeSlotTable">
+    <Key>
+      <PropertyRef Name="DoctorTimeSlotID" />
+    </Key>
+    <Property Name="DoctorTimeSlotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ToTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="FromTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenderTable">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LabAppointTable">
+    <Key>
+      <PropertyRef Name="LabAppointID" />
+    </Key>
+    <Property Name="LabAppointID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LabTestID" Type="int" Nullable="false" />
+    <Property Name="PatientID" Type="int" Nullable="false" />
+    <Property Name="LabID" Type="int" Nullable="false" />
+    <Property Name="LabTimeSlotID" Type="int" Nullable="false" />
+    <Property Name="AppointDate" Type="date" Nullable="false" />
+    <Property Name="IsFeeSubmit" Type="bit" Nullable="false" />
+    <Property Name="IsComplete" Type="bit" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="300" />
+    <Property Name="TransectionID" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LabTable">
+    <Key>
+      <PropertyRef Name="LabID" />
+    </Key>
+    <Property Name="LabID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="300" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="150" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="PermanentAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="AboutLab" Type="nvarchar" MaxLength="500" />
+    <Property Name="AccountTypeID" Type="int" Nullable="false" />
+    <Property Name="AccountNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LabTestDetailsTable">
+    <Key>
+      <PropertyRef Name="LabTestDetailID" />
+    </Key>
+    <Property Name="LabTestDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LabTestID" Type="int" Nullable="false" />
+    <Property Name="LabID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="MinValue" Type="int" Nullable="false" />
+    <Property Name="MaxValue" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LabTestTable">
+    <Key>
+      <PropertyRef Name="LabTestID" />
+    </Key>
+    <Property Name="LabTestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LabID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Cost" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LabTimeSlotTable">
+    <Key>
+      <PropertyRef Name="LabTimeSlotID" />
+    </Key>
+    <Property Name="LabTimeSlotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LabID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ToTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="FromTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="PatientTable">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="300" />
+    <Property Name="GenderID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatientTestDetailTable">
+    <Key>
+      <PropertyRef Name="LabAppointDetailID" />
+    </Key>
+    <Property Name="LabAppointDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LabAppointID" Type="int" Nullable="false" />
+    <Property Name="LabTestDetailID" Type="int" Nullable="false" />
+    <Property Name="PatientValue" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserTypeID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsVerifed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTypeTable">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DoctorAppointTable_DoctorTable">
+    <End Role="DoctorTable" Type="Self.DoctorTable" Multiplicity="1" />
+    <End Role="DoctorAppointTable" Type="Self.DoctorAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorTable">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="DoctorAppointTable">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorAppointTable_DoctorTimeSlotTable">
+    <End Role="DoctorTimeSlotTable" Type="Self.DoctorTimeSlotTable" Multiplicity="1" />
+    <End Role="DoctorAppointTable" Type="Self.DoctorAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorTimeSlotTable">
+        <PropertyRef Name="DoctorTimeSlotID" />
+      </Principal>
+      <Dependent Role="DoctorAppointTable">
+        <PropertyRef Name="DoctorTimeSlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorAppointTable_PatientTable">
+    <End Role="PatientTable" Type="Self.PatientTable" Multiplicity="1" />
+    <End Role="DoctorAppointTable" Type="Self.DoctorAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientTable">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="DoctorAppointTable">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorTable_GenderTable">
+    <End Role="GenderTable" Type="Self.GenderTable" Multiplicity="1" />
+    <End Role="DoctorTable" Type="Self.DoctorTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderTable">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="DoctorTable">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorTable_UserTable">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="DoctorTable" Type="Self.DoctorTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="DoctorTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorTimeSlotTable_DoctorTable">
+    <End Role="DoctorTable" Type="Self.DoctorTable" Multiplicity="1" />
+    <End Role="DoctorTimeSlotTable" Type="Self.DoctorTimeSlotTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorTable">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="DoctorTimeSlotTable">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabAppointTable_LabTable">
+    <End Role="LabTable" Type="Self.LabTable" Multiplicity="1" />
+    <End Role="LabAppointTable" Type="Self.LabAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTable">
+        <PropertyRef Name="LabID" />
+      </Principal>
+      <Dependent Role="LabAppointTable">
+        <PropertyRef Name="LabID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabAppointTable_LabTestTable">
+    <End Role="LabTestTable" Type="Self.LabTestTable" Multiplicity="1" />
+    <End Role="LabAppointTable" Type="Self.LabAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTestTable">
+        <PropertyRef Name="LabTestID" />
+      </Principal>
+      <Dependent Role="LabAppointTable">
+        <PropertyRef Name="LabTestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabAppointTable_LabTimeSlotTable">
+    <End Role="LabTimeSlotTable" Type="Self.LabTimeSlotTable" Multiplicity="1" />
+    <End Role="LabAppointTable" Type="Self.LabAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTimeSlotTable">
+        <PropertyRef Name="LabTimeSlotID" />
+      </Principal>
+      <Dependent Role="LabAppointTable">
+        <PropertyRef Name="LabTimeSlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabAppointTable_PatientTable">
+    <End Role="PatientTable" Type="Self.PatientTable" Multiplicity="1" />
+    <End Role="LabAppointTable" Type="Self.LabAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientTable">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="LabAppointTable">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTable_AccountTypeTable">
+    <End Role="AccountTypeTable" Type="Self.AccountTypeTable" Multiplicity="1" />
+    <End Role="LabTable" Type="Self.LabTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountTypeTable">
+        <PropertyRef Name="AccountTypeID" />
+      </Principal>
+      <Dependent Role="LabTable">
+        <PropertyRef Name="AccountTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTable_UserTable">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="LabTable" Type="Self.LabTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="LabTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTestDetailsTable_LabTable">
+    <End Role="LabTable" Type="Self.LabTable" Multiplicity="1" />
+    <End Role="LabTestDetailsTable" Type="Self.LabTestDetailsTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTable">
+        <PropertyRef Name="LabID" />
+      </Principal>
+      <Dependent Role="LabTestDetailsTable">
+        <PropertyRef Name="LabID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTestDetailsTable_LabTestTable">
+    <End Role="LabTestTable" Type="Self.LabTestTable" Multiplicity="1" />
+    <End Role="LabTestDetailsTable" Type="Self.LabTestDetailsTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTestTable">
+        <PropertyRef Name="LabTestID" />
+      </Principal>
+      <Dependent Role="LabTestDetailsTable">
+        <PropertyRef Name="LabTestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTestTable_LabTable">
+    <End Role="LabTable" Type="Self.LabTable" Multiplicity="1" />
+    <End Role="LabTestTable" Type="Self.LabTestTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTable">
+        <PropertyRef Name="LabID" />
+      </Principal>
+      <Dependent Role="LabTestTable">
+        <PropertyRef Name="LabID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTimeSlotTable_LabTable">
+    <End Role="LabTable" Type="Self.LabTable" Multiplicity="1" />
+    <End Role="LabTimeSlotTable" Type="Self.LabTimeSlotTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTable">
+        <PropertyRef Name="LabID" />
+      </Principal>
+      <Dependent Role="LabTimeSlotTable">
+        <PropertyRef Name="LabID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientTable_GenderTable">
+    <End Role="GenderTable" Type="Self.GenderTable" Multiplicity="1" />
+    <End Role="PatientTable" Type="Self.PatientTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderTable">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="PatientTable">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientTestDetailTable_LabAppointTable">
+    <End Role="LabAppointTable" Type="Self.LabAppointTable" Multiplicity="1" />
+    <End Role="PatientTestDetailTable" Type="Self.PatientTestDetailTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabAppointTable">
+        <PropertyRef Name="LabAppointID" />
+      </Principal>
+      <Dependent Role="PatientTestDetailTable">
+        <PropertyRef Name="LabAppointID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientTestDetailTable_LabTestDetailsTable">
+    <End Role="LabTestDetailsTable" Type="Self.LabTestDetailsTable" Multiplicity="1" />
+    <End Role="PatientTestDetailTable" Type="Self.PatientTestDetailTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTestDetailsTable">
+        <PropertyRef Name="LabTestDetailID" />
+      </Principal>
+      <Dependent Role="PatientTestDetailTable">
+        <PropertyRef Name="LabTestDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTable_UserTypeTable">
+    <End Role="UserTypeTable" Type="Self.UserTypeTable" Multiplicity="1" />
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTypeTable">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Mvc_HospitalModelStoreContainer">
+    <EntitySet Name="AccountTypeTable" EntityType="Self.AccountTypeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DoctorAppointTable" EntityType="Self.DoctorAppointTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DoctorTable" EntityType="Self.DoctorTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DoctorTimeSlotTable" EntityType="Self.DoctorTimeSlotTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenderTable" EntityType="Self.GenderTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LabAppointTable" EntityType="Self.LabAppointTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LabTable" EntityType="Self.LabTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LabTestDetailsTable" EntityType="Self.LabTestDetailsTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LabTestTable" EntityType="Self.LabTestTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LabTimeSlotTable" EntityType="Self.LabTimeSlotTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientTable" EntityType="Self.PatientTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientTestDetailTable" EntityType="Self.PatientTestDetailTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTypeTable" EntityType="Self.UserTypeTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DoctorAppointTable_DoctorTable" Association="Self.FK_DoctorAppointTable_DoctorTable">
+      <End Role="DoctorTable" EntitySet="DoctorTable" />
+      <End Role="DoctorAppointTable" EntitySet="DoctorAppointTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorAppointTable_DoctorTimeSlotTable" Association="Self.FK_DoctorAppointTable_DoctorTimeSlotTable">
+      <End Role="DoctorTimeSlotTable" EntitySet="DoctorTimeSlotTable" />
+      <End Role="DoctorAppointTable" EntitySet="DoctorAppointTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorAppointTable_PatientTable" Association="Self.FK_DoctorAppointTable_PatientTable">
+      <End Role="PatientTable" EntitySet="PatientTable" />
+      <End Role="DoctorAppointTable" EntitySet="DoctorAppointTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorTable_GenderTable" Association="Self.FK_DoctorTable_GenderTable">
+      <End Role="GenderTable" EntitySet="GenderTable" />
+      <End Role="DoctorTable" EntitySet="DoctorTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorTable_UserTable" Association="Self.FK_DoctorTable_UserTable">
+      <End Role="UserTable" EntitySet="UserTable" />
+      <End Role="DoctorTable" EntitySet="DoctorTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorTimeSlotTable_DoctorTable" Association="Self.FK_DoctorTimeSlotTable_DoctorTable">
+      <End Role="DoctorTable" EntitySet="DoctorTable" />
+      <End Role="DoctorTimeSlotTable" EntitySet="DoctorTimeSlotTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabAppointTable_LabTable" Association="Self.FK_LabAppointTable_LabTable">
+      <End Role="LabTable" EntitySet="LabTable" />
+      <End Role="LabAppointTable" EntitySet="LabAppointTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabAppointTable_LabTestTable" Association="Self.FK_LabAppointTable_LabTestTable">
+      <End Role="LabTestTable" EntitySet="LabTestTable" />
+      <End Role="LabAppointTable" EntitySet="LabAppointTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabAppointTable_LabTimeSlotTable" Association="Self.FK_LabAppointTable_LabTimeSlotTable">
+      <End Role="LabTimeSlotTable" EntitySet="LabTimeSlotTable" />
+      <End Role="LabAppointTable" EntitySet="LabAppointTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabAppointTable_PatientTable" Association="Self.FK_LabAppointTable_PatientTable">
+      <End Role="PatientTable" EntitySet="PatientTable" />
+      <End Role="LabAppointTable" EntitySet="LabAppointTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTable_AccountTypeTable" Association="Self.FK_LabTable_AccountTypeTable">
+      <End Role="AccountTypeTable" EntitySet="AccountTypeTable" />
+      <End Role="LabTable" EntitySet="LabTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTable_UserTable" Association="Self.FK_LabTable_UserTable">
+      <End Role="UserTable" EntitySet="UserTable" />
+      <End Role="LabTable" EntitySet="LabTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTestDetailsTable_LabTable" Association="Self.FK_LabTestDetailsTable_LabTable">
+      <End Role="LabTable" EntitySet="LabTable" />
+      <End Role="LabTestDetailsTable" EntitySet="LabTestDetailsTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTestDetailsTable_LabTestTable" Association="Self.FK_LabTestDetailsTable_LabTestTable">
+      <End Role="LabTestTable" EntitySet="LabTestTable" />
+      <End Role="LabTestDetailsTable" EntitySet="LabTestDetailsTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTestTable_LabTable" Association="Self.FK_LabTestTable_LabTable">
+      <End Role="LabTable" EntitySet="LabTable" />
+      <End Role="LabTestTable" EntitySet="LabTestTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTimeSlotTable_LabTable" Association="Self.FK_LabTimeSlotTable_LabTable">
+      <End Role="LabTable" EntitySet="LabTable" />
+      <End Role="LabTimeSlotTable" EntitySet="LabTimeSlotTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientTable_GenderTable" Association="Self.FK_PatientTable_GenderTable">
+      <End Role="GenderTable" EntitySet="GenderTable" />
+      <End Role="PatientTable" EntitySet="PatientTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientTestDetailTable_LabAppointTable" Association="Self.FK_PatientTestDetailTable_LabAppointTable">
+      <End Role="LabAppointTable" EntitySet="LabAppointTable" />
+      <End Role="PatientTestDetailTable" EntitySet="PatientTestDetailTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientTestDetailTable_LabTestDetailsTable" Association="Self.FK_PatientTestDetailTable_LabTestDetailsTable">
+      <End Role="LabTestDetailsTable" EntitySet="LabTestDetailsTable" />
+      <End Role="PatientTestDetailTable" EntitySet="PatientTestDetailTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTable_UserTypeTable" Association="Self.FK_UserTable_UserTypeTable">
+      <End Role="UserTypeTable" EntitySet="UserTypeTable" />
+      <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

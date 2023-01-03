@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0086AC77-6793-419B-9537-4B1A7E964031}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MVC_Hospital</RootNamespace>
+    <AssemblyName>MVC_Hospital</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44398</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountTypeTablesController.cs" />
+    <Compile Include="Controllers\DoctorAppointmentStatusController.cs" />
+    <Compile Include="Controllers\DoctorApproveController.cs" />
+    <Compile Include="Controllers\DoctorTimeSlotTablesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LabAppointmentStatusController.cs" />
+    <Compile Include="Controllers\LabApproveController.cs" />
+    <Compile Include="Controllers\LabSettingController.cs" />
+    <Compile Include="Controllers\LabTimeSlotTablesController.cs" />
+    <Compile Include="Controllers\PatientAppointController.cs" />
+    <Compile Include="Controllers\UserTablesController.cs" />
+    <Compile Include="Controllers\UserTypeTablesController.cs" />
+    <Compile Include="FileHelpers.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientAppointmentReportMV.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FrontTemplate\css\bootstrap.css" />
+    <Content Include="Content\FrontTemplate\css\breadcrumb.css" />
+    <Content Include="Content\FrontTemplate\css\counter-up\jquery.counterup.js" />
+    <Content Include="Content\FrontTemplate\css\counter-up\jquery.waypoints.min.js" />
+    <Content Include="Content\FrontTemplate\css\flaticon.css" />
+    <Content Include="Content\FrontTemplate\css\responsive.css" />
+    <Content Include="Content\FrontTemplate\css\style.css" />
+    <Content Include="Content\FrontTemplate\css\themify-icons.css" />
+    <Content Include="Content\FrontTemplate\css\_about.css" />
+    <Content Include="Content\FrontTemplate\css\_courses.css" />
+    <Content Include="Content\FrontTemplate\css\_feature.css" />
+    <Content Include="Content\FrontTemplate\css\_price.css" />
+    <Content Include="Content\DashboardTemplate\css\font-awesome.min.css" />
+    <Content Include="Content\DashboardTemplate\css\main.css" />
+    <Content Include="Content\DashboardTemplate\css\normalize.min.css" />
+    <Content Include="Content\DashboardTemplate\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\DashboardTemplate\img\logo.png" />
+    <Content Include="Content\DashboardTemplate\js\custom.js" />
+    <Content Include="Content\DashboardTemplate\js\jquery-1.11.0.min.js" />
+    <Content Include="Content\DashboardTemplate\js\jquery.nav.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shAutoloader.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushAS3.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushBash.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushCpp.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushCSharp.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushCss.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushDelphi.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushDiff.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushErlang.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushGroovy.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushJava.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushJScript.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushPerl.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushPhp.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushPlain.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushPython.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushRuby.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushSass.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushScala.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushSql.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushVb.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shBrushXml.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shCore.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\scripts\shLegacy.js" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCore.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCoreDefault.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCoreDjango.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCoreEclipse.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCoreEmacs.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCoreMDUltra.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCoreMidnight.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shCoreRDark.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shThemeDefault.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shThemeDjango.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shThemeEclipse.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shThemeEmacs.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shThemeMDUltra.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shThemeMidnight.css" />
+    <Content Include="Content\DashboardTemplate\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="Content\FrontTemplate\fonts\Flaticon.svg" />
+    <Content Include="Content\FrontTemplate\fonts\themify.svg" />
+    <Content Include="Content\FrontTemplate\img\background\bg1.jpg" />
+    <Content Include="Content\FrontTemplate\img\background\bg_1.png" />
+    <Content Include="Content\FrontTemplate\img\background\bg_2.png" />
+    <Content Include="Content\FrontTemplate\img\banner\about1.png" />
+    <Content Include="Content\FrontTemplate\img\banner\about2.png" />
+    <Content Include="Content\FrontTemplate\img\banner\banner-2.jpg" />
+    <Content Include="Content\FrontTemplate\img\banner\banner.jpg" />
+    <Content Include="Content\FrontTemplate\img\banner\home-banner.jpg" />
+    <Content Include="Content\FrontTemplate\img\banner\pattern_bg.jpg" />
+    <Content Include="Content\FrontTemplate\img\banner\shap-1.png" />
+    <Content Include="Content\FrontTemplate\img\banner\shap-2.png" />
+    <Content Include="Content\FrontTemplate\img\blog\1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\2.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\3.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\add.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\author.png" />
+    <Content Include="Content\FrontTemplate\img\blog\blog1.png" />
+    <Content Include="Content\FrontTemplate\img\blog\blog2.png" />
+    <Content Include="Content\FrontTemplate\img\blog\blog3.png" />
+    <Content Include="Content\FrontTemplate\img\blog\c1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\c1.png" />
+    <Content Include="Content\FrontTemplate\img\blog\c2.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\c2.png" />
+    <Content Include="Content\FrontTemplate\img\blog\c3.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\c3.png" />
+    <Content Include="Content\FrontTemplate\img\blog\c4.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\c5.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\c6.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\cat-post\cat-post-1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\cat-post\cat-post-2.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\cat-post\cat-post-3.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\causes\causes-1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\causes\causes-2.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\causes\causes-3.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\feature-img1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\latest-post\l-post-1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\latest-post\l-post-2.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\latest-post\l-post-3.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\latest-post\l-post-4.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\main-blog\m-blog-1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\main-blog\m-blog-2.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\main-blog\m-blog-3.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\main-blog\m-blog-4.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\main-blog\m-blog-5.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\next.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\popular-post\post1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\popular-post\post2.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\popular-post\post3.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\popular-post\post4.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\post-img1.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\post-img2.jpg" />
+    <Content Include="Content\FrontTemplate\img\blog\prev.jpg" />
+    <Content Include="Content\FrontTemplate\img\brand\1.png" />
+    <Content Include="Content\FrontTemplate\img\brand\2.png" />
+    <Content Include="Content\FrontTemplate\img\brand\3.png" />
+    <Content Include="Content\FrontTemplate\img\brand\4.png" />
+    <Content Include="Content\FrontTemplate\img\brand\5.png" />
+    <Content Include="Content\FrontTemplate\img\elements\a.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\a2.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\d.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\disabled-check.png" />
+    <Content Include="Content\FrontTemplate\img\elements\disabled-radio.png" />
+    <Content Include="Content\FrontTemplate\img\elements\f1.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\f2.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\f3.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\f4.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\f5.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\f6.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\f7.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\f8.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\g1.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\g2.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\g3.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\g4.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\g5.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\g6.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\g7.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\g8.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\primary-check.png" />
+    <Content Include="Content\FrontTemplate\img\elements\primary-radio.png" />
+    <Content Include="Content\FrontTemplate\img\elements\success-check.png" />
+    <Content Include="Content\FrontTemplate\img\elements\success-radio.png" />
+    <Content Include="Content\FrontTemplate\img\elements\tes1.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\tex2.jpg" />
+    <Content Include="Content\FrontTemplate\img\elements\user1.png" />
+    <Content Include="Content\FrontTemplate\img\elements\user2.png" />
+    <Content Include="Content\FrontTemplate\img\favicon.png" />
+    <Content Include="Content\FrontTemplate\img\icon\cotation.png" />
+    <Content Include="Content\FrontTemplate\img\icon\i1.png" />
+    <Content Include="Content\FrontTemplate\img\icon\i2.png" />
+    <Content Include="Content\FrontTemplate\img\icon\i3.png" />
+    <Content Include="Content\FrontTemplate\img\icon\i4.png" />
+    <Content Include="Content\FrontTemplate\img\icon\video-icon-1.png" />
+    <Content Include="Content\FrontTemplate\img\instagram\widget-i1.png" />
+    <Content Include="Content\FrontTemplate\img\instagram\widget-i2.png" />
+    <Content Include="Content\FrontTemplate\img\instagram\widget-i3.png" />
+    <Content Include="Content\FrontTemplate\img\instagram\widget-i4.png" />
+    <Content Include="Content\FrontTemplate\img\instagram\widget-i5.png" />
+    <Content Include="Content\FrontTemplate\img\instagram\widget-i6.png" />
+    <Content Include="Content\FrontTemplate\img\logo.png" />
+    <Content Include="Content\FrontTemplate\img\notify-bg.jpg" />
+    <Content Include="Content\FrontTemplate\img\project\1.jpg" />
+    <Content Include="Content\FrontTemplate\img\project\2.jpg" />
+    <Content Include="Content\FrontTemplate\img\project\3.jpg" />
+    <Content Include="Content\FrontTemplate\img\project\4.jpg" />
+    <Content Include="Content\FrontTemplate\img\team\1.jpg" />
+    <Content Include="Content\FrontTemplate\img\team\2.jpg" />
+    <Content Include="Content\FrontTemplate\img\team\3.jpg" />
+    <Content Include="Content\FrontTemplate\img\video-1.jpg" />
+    <Content Include="Content\FrontTemplate\js\bootstrap.min.js" />
+    <Content Include="Content\FrontTemplate\js\contact.js" />
+    <Content Include="Content\FrontTemplate\js\custom.js" />
+    <Content Include="Content\FrontTemplate\js\gmaps.min.js" />
+    <Content Include="Content\FrontTemplate\js\jquery-2.2.4.min.js" />
+    <Content Include="Content\FrontTemplate\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\FrontTemplate\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Content\FrontTemplate\js\jquery.form.js" />
+    <Content Include="Content\FrontTemplate\js\jquery.validate.min.js" />
+    <Content Include="Content\FrontTemplate\js\jquery.waypoints.min.js" />
+    <Content Include="Content\FrontTemplate\js\mail-script.js" />
+    <Content Include="Content\FrontTemplate\js\popper.js" />
+    <Content Include="Content\FrontTemplate\js\stellar.js" />
+    <Content Include="Content\FrontTemplate\js\theme.js" />
+    <Content Include="Content\FrontTemplate\js\waypoints.min.js" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\backup.txt" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\font\flaticon.css" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\font\flaticon.html" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\font\Flaticon.svg" />
+    <Content Include="Content\FrontTemplate\vendors\animate-css\animate.css" />
+    <Content Include="Content\FrontTemplate\vendors\animate-css\wow.min.js" />
+    <Content Include="Content\FrontTemplate\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\FrontTemplate\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\FrontTemplate\vendors\bootstrap-datepicker\bootstrap-select.css" />
+    <Content Include="Content\FrontTemplate\vendors\bootstrap-datepicker\bootstrap-select.js" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\css\all.min.css" />
+    <Content Include="Content\FrontTemplate\vendors\owl-carousel\assets\ajax-loader.gif" />
+    <Content Include="Content\FrontTemplate\vendors\owl-carousel\assets\animated.css" />
+    <Content Include="Content\FrontTemplate\vendors\owl-carousel\assets\owl.carousel.css" />
+    <Content Include="Content\FrontTemplate\vendors\owl-carousel\owl.carousel.min.css" />
+    <Content Include="Content\FrontTemplate\vendors\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Content\LoginTemplate\css\main.css" />
+    <Content Include="Content\LoginTemplate\css\util.css" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\LoginTemplate\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="Content\LoginTemplate\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\OFL.txt" />
+    <Content Include="Content\LoginTemplate\images\bg-01.jpg" />
+    <Content Include="Content\LoginTemplate\images\icons\favicon.ico" />
+    <Content Include="Content\LoginTemplate\js\main.js" />
+    <Content Include="Content\LoginTemplate\vendor\animate\animate.css" />
+    <Content Include="Content\LoginTemplate\vendor\animsition\css\animsition.css" />
+    <Content Include="Content\LoginTemplate\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Content\LoginTemplate\vendor\animsition\js\animsition.js" />
+    <Content Include="Content\LoginTemplate\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\LoginTemplate\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Content\LoginTemplate\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\LoginTemplate\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\LoginTemplate\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Content\LoginTemplate\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Content\LoginTemplate\vendor\daterangepicker\moment.js" />
+    <Content Include="Content\LoginTemplate\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Content\LoginTemplate\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\LoginTemplate\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\LoginTemplate\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\LoginTemplate\vendor\select2\select2.css" />
+    <Content Include="Content\LoginTemplate\vendor\select2\select2.js" />
+    <Content Include="Content\LoginTemplate\vendor\select2\select2.min.css" />
+    <Content Include="Content\LoginTemplate\vendor\select2\select2.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\FrontTemplate\css\breadcrumb.css.map" />
+    <Content Include="Content\FrontTemplate\css\style.css.map" />
+    <Content Include="Content\FrontTemplate\css\_about.css.map" />
+    <Content Include="Content\FrontTemplate\css\_courses.css.map" />
+    <Content Include="Content\FrontTemplate\css\_feature.css.map" />
+    <Content Include="Content\FrontTemplate\css\_price.css.map" />
+    <Content Include="Content\FrontTemplate\fonts\Flaticon.eot" />
+    <Content Include="Content\FrontTemplate\fonts\Flaticon.ttf" />
+    <Content Include="Content\FrontTemplate\fonts\Flaticon.woff" />
+    <Content Include="Content\FrontTemplate\fonts\Flaticon.woff2" />
+    <Content Include="Content\FrontTemplate\fonts\themify.eot" />
+    <Content Include="Content\FrontTemplate\fonts\themify.ttf" />
+    <Content Include="Content\FrontTemplate\fonts\themify.woff" />
+    <Content Include="Content\FrontTemplate\img\.DS_Store" />
+    <Content Include="Content\FrontTemplate\img\blog\.DS_Store" />
+    <Content Include="Content\FrontTemplate\img\elements\_DS_Store" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\font\Flaticon.eot" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\font\Flaticon.ttf" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\font\Flaticon.woff" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\font\Flaticon.woff2" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\font\_flaticon.scss" />
+    <Content Include="Content\FrontTemplate\my-icons-collection\license\license.pdf" />
+    <Content Include="Content\FrontTemplate\scss\style.scss" />
+    <Content Include="Content\FrontTemplate\scss\_about.scss" />
+    <Content Include="Content\FrontTemplate\scss\_appointment.scss" />
+    <Content Include="Content\FrontTemplate\scss\_blog.scss" />
+    <Content Include="Content\FrontTemplate\scss\_breadcrumb.scss" />
+    <Content Include="Content\FrontTemplate\scss\_button.scss" />
+    <Content Include="Content\FrontTemplate\scss\_contact.scss" />
+    <Content Include="Content\FrontTemplate\scss\_elements.scss" />
+    <Content Include="Content\FrontTemplate\scss\_footer.scss" />
+    <Content Include="Content\FrontTemplate\scss\_header.scss" />
+    <Content Include="Content\FrontTemplate\scss\_hotline.scss" />
+    <Content Include="Content\FrontTemplate\scss\_predefine.scss" />
+    <Content Include="Content\FrontTemplate\scss\_services.scss" />
+    <Content Include="Content\FrontTemplate\scss\_team.scss" />
+    <Content Include="Content\FrontTemplate\scss\_testimonials.scss" />
+    <Content Include="Content\FrontTemplate\scss\_variables.scss" />
+    <Content Include="Content\FrontTemplate\vendors\.DS_Store" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\FrontTemplate\vendors\fontawesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\DashboardTemplate\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\DashboardTemplate\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\DashboardTemplate\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\DashboardTemplate\fonts\FontAwesome.otf" />
+    <Content Include="Content\DashboardTemplate\img\Thumbs.db" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\LoginTemplate\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\LoginTemplate\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="Content\LoginTemplate\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="Content\LoginTemplate\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Content\LoginTemplate\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\LoginTemplate\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\UserTypeTables\Create.cshtml" />
+    <Content Include="Views\UserTypeTables\Delete.cshtml" />
+    <Content Include="Views\UserTypeTables\Details.cshtml" />
+    <Content Include="Views\UserTypeTables\Edit.cshtml" />
+    <Content Include="Views\UserTypeTables\Index.cshtml" />
+    <Content Include="Views\Home\StartTemplate.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\AccountTypeTables\Create.cshtml" />
+    <Content Include="Views\AccountTypeTables\Delete.cshtml" />
+    <Content Include="Views\AccountTypeTables\Details.cshtml" />
+    <Content Include="Views\AccountTypeTables\Edit.cshtml" />
+    <Content Include="Views\AccountTypeTables\Index.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Home\CreateUser.cshtml" />
+    <Content Include="Views\Home\AddDoctor.cshtml" />
+    <Content Include="Views\Home\AddLab.cshtml" />
+    <Content Include="Views\Home\AddPatient.cshtml" />
+    <Content Include="Views\Shared\LPD_Layout.cshtml" />
+    <Content Include="Views\Home\UnderReview.cshtml" />
+    <Content Include="Views\UserTables\Create.cshtml" />
+    <Content Include="Views\UserTables\Delete.cshtml" />
+    <Content Include="Views\UserTables\Details.cshtml" />
+    <Content Include="Views\UserTables\Edit.cshtml" />
+    <Content Include="Views\UserTables\Index.cshtml" />
+    <Content Include="Views\LabSetting\LabAllTest.cshtml" />
+    <Content Include="Views\LabSetting\AddTest.cshtml" />
+    <Content Include="Views\LabSetting\TestDetails.cshtml" />
+    <Content Include="Views\LabSetting\AddTestDetails.cshtml" />
+    <Content Include="Views\LabSetting\EditTest.cshtml" />
+    <Content Include="Views\LabSetting\EditTestDetails.cshtml" />
+    <Content Include="Views\LabTimeSlotTables\Create.cshtml" />
+    <Content Include="Views\LabTimeSlotTables\Delete.cshtml" />
+    <Content Include="Views\LabTimeSlotTables\Details.cshtml" />
+    <Content Include="Views\LabTimeSlotTables\Edit.cshtml" />
+    <Content Include="Views\LabTimeSlotTables\Index.cshtml" />
+    <Content Include="Views\DoctorTimeSlotTables\Create.cshtml" />
+    <Content Include="Views\DoctorTimeSlotTables\Delete.cshtml" />
+    <Content Include="Views\DoctorTimeSlotTables\Details.cshtml" />
+    <Content Include="Views\DoctorTimeSlotTables\Edit.cshtml" />
+    <Content Include="Views\DoctorTimeSlotTables\Index.cshtml" />
+    <Content Include="Views\PatientAppoint\GetAllDoctors.cshtml" />
+    <Content Include="Views\PatientAppoint\GetAllLabs.cshtml" />
+    <Content Include="Views\PatientAppoint\DoctorAppointment.cshtml" />
+    <Content Include="Views\PatientAppoint\DoctorProfile.cshtml" />
+    <Content Include="Views\PatientAppoint\DoctorPendingAppoint.cshtml" />
+    <Content Include="Views\DoctorAppointmentStatus\PendingAppoint.cshtml" />
+    <Content Include="Views\DoctorAppointmentStatus\CurrentAppoint.cshtml" />
+    <Content Include="Views\DoctorAppointmentStatus\CompletedAppoint.cshtml" />
+    <Content Include="Views\DoctorAppointmentStatus\CancelAppoint.cshtml" />
+    <Content Include="Views\DoctorAppointmentStatus\AllAppoint.cshtml" />
+    <Content Include="Views\PatientAppoint\LabTests.cshtml" />
+    <Content Include="Views\PatientAppoint\LabAppointment.cshtml" />
+    <Content Include="Views\LabAppointmentStatus\PendingAppoint.cshtml" />
+    <Content Include="Views\LabAppointmentStatus\CurrentAppoint.cshtml" />
+    <Content Include="Views\LabAppointmentStatus\CompletedAppoint.cshtml" />
+    <Content Include="Views\LabAppointmentStatus\AllAppoint.cshtml" />
+    <Content Include="Views\LabAppointmentStatus\CancelAppoint.cshtml" />
+    <Content Include="Views\DoctorApprove\PendingAppoint.cshtml" />
+    <Content Include="Views\DoctorApprove\ChangeStatus.cshtml" />
+    <Content Include="Views\DoctorApprove\CurrentAppoint.cshtml" />
+    <Content Include="Views\DoctorApprove\ProcessAppointment.cshtml" />
+    <Content Include="Views\DoctorApprove\AllAppoint.cshtml" />
+    <Content Include="Views\DoctorApprove\CompleteAppointment.cshtml" />
+    <Content Include="Views\LabApprove\ChangeStatus.cshtml" />
+    <Content Include="Views\LabApprove\PendingAppoint.cshtml" />
+    <Content Include="Views\LabApprove\CompleteAppointment.cshtml" />
+    <Content Include="Views\LabApprove\CurrentAppoint.cshtml" />
+    <Content Include="Views\LabApprove\AllAppoint.cshtml" />
+    <Content Include="Views\LabApprove\ProccessAppointment.cshtml" />
+    <Content Include="Views\LabApprove\ViewDetails.cshtml" />
+    <Content Include="Views\LabSetting\GetAllTest.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\DoctorImages\" />
+    <Folder Include="Content\LabPhotos\" />
+    <Folder Include="Content\PatientPhotos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseLayer\DatabaseLayer.csproj">
+      <Project>{219191e5-d140-4111-832b-23ebaea52467}</Project>
+      <Name>DatabaseLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51604</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63089/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<DatabaseLayer.DoctorAppointTable>
+
+@{
+    ViewBag.Title = "Pending Appointment";
+}
+
+<h2>Pending Appointment</h2>
+
+
+
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+
+
+        <input type="text" name="searchtype" id="searchtype" class="form-control col-md-3" style="float:right;" placeholder="Search Here" />
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+
+
+                        <th>
+                            Doctor Name
+                        </th>
+
+                        <th>
+                            Time Slot
+                        </th>
+                        <th>
+                            Patient Name
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AppointDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TransectionID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            Status
+                        </th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody id="searchvalue">
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DoctorTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DoctorTimeSlotTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PatientTable.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TransectionID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+
+                            <td>
+
+                                <h4 class="bold" style="color:blue;">Pending</h4>
+
+
+                            </td>
+                           
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#searchtype").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#searchvalue tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+

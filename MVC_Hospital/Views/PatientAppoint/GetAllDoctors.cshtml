@@ -1,0 +1,111 @@
+﻿@model IEnumerable<DatabaseLayer.DoctorTable>
+
+@{
+    ViewBag.Title = "GetAllDoctors";
+}
+
+<h2>GetAllDoctors</h2>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <input type="text" name="searchtype" id="searchtype" class="form-control col-md-3" style="float:right;" placeholder="Search Here" />
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Doctor
+                        </th>
+                        <th>
+                            Photo
+                        </th>
+                        <th>
+                            Fees
+                        </th>
+                        <th>
+                            Phone No
+                        </th>
+                        <th>
+                            Email Adress
+                        </th>
+                        <th>
+                            Specialization
+                        </th>
+                        <th>
+                            Clinic Adress
+                        </th>
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="searchvalue">
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @{ if (!string.IsNullOrEmpty(item.Photo))
+                                    {
+                                        <img src="@Url.Content(item.Photo)" alt="Image" style="width:50px;height:50px;max-width:100%; height:auto;" />
+                                    }
+                               
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fees)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ClinicPhoneNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EmailAddress)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Splztion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ClinicAddress)
+                            </td>
+
+
+
+
+
+                            <td>
+                                @Html.ActionLink("Appointment", "DoctorAppointment", new { id = item.DoctorID }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Profile", "DoctorProfile", new { id = item.DoctorID }, new { @class = "btn btn-primary" })
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#searchtype").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#searchvalue tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

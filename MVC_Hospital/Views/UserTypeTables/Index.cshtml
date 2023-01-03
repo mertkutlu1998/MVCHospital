@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DatabaseLayer.UserTypeTable>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LPD_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserTypeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserTypeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserTypeID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,115 @@
+﻿@model DatabaseLayer.DoctorTable
+
+@{
+    ViewBag.Title = "DoctorProfile";
+}
+
+<h2>DoctorProfile</h2>
+
+<div>
+    <h4>DoctorTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Doctor Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        @*<dt>
+        Contact No        </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ContactNo)
+                </dd>*@
+        <dt>
+            Gender
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderTable.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+        <dt>
+            Fee's'
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fees)
+        </dd>
+        <dt>
+            Account Type   @Html.DisplayNameFor(model => model.UserTable.UserTypeTable.UserType)
+        </dt>
+
+
+        <dd>
+          Before Appointment Must be Submit Appointment Fee,Using This Account No: "@Html.DisplayFor(model => model.AccountNo)"
+        </dd>
+        <dt>
+            Field/Specialist
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Splztion)
+        </dd>
+
+        <dt>
+            Clinic Adress
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClinicAddress)
+        </dd>
+
+        <dt>
+            Permanent Adress
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermanentAddress)
+        </dd>
+
+        <dt>
+            Email Adress
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            Clinic Phone
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClinicPhoneNo)
+        </dd>
+
+        <dt>
+            About
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+
+
+
+
+
+
+
+
+
+
+    </dl>
+</div>

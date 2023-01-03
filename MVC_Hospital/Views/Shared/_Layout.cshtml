@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Medcare Medical</title>
+    <meta name="description" content="">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="shortcut icon" href="img/favicon.png"> -->
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" />
+
+    <!-- Syntax Highlighter -->
+    <link rel="stylesheet" type="text/css" href="~/Content/DashboardTemplate/syntax-highlighter/styles/shCore.css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/Content/DashboardTemplate/syntax-highlighter/styles/shThemeDefault.css" media="all">
+
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="~/Content/DashboardTemplate/css/font-awesome.min.css">
+    <!-- Normalize/Reset CSS-->
+    <link rel="stylesheet" href="~/Content/DashboardTemplate/css/normalize.min.css">
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="~/Content/DashboardTemplate/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginTemplate/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginTemplate/css/main.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/flaticon.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/vendors/animate-css/animate.css">
+    @*main css*@
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/style.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/responsive.css">
+
+    <style>
+        #topFixedNavbar1 {
+            overflow-y: scroll !important;
+            max-height: 500px !important;
+         
+        }
+    </style>
+</head>
+
+<body id="welcome">
+
+    <aside class="left-sidebar">
+        <div class="logo">
+            <a href="#welcome">
+                <img src="~/Content/DashboardTemplate/img/logo.png" alt="">
+            </a>
+        </div>
+        <nav class="left-nav" id="topFixedNavbar1">
+            <ul id="nav">
+
+                <li>@Html.ActionLink("Change Password", "ChangePassword", "Home", null, null)</li>
+
+                @{
+                    //Erişim belirleme
+                    if (Session["UserTypeID"] != null)
+                    {
+                        int value = Convert.ToInt32(Convert.ToString(Session["UserTypeID"]).Trim());
+                        if (value == 1)
+                        {
+                            <li>@Html.ActionLink("Account Type", "Index", "AccountTypeTables", null, null)</li>
+                            <li>@Html.ActionLink("All User", "Index", "UserTables", null, null)</li>
+                            <li>@Html.ActionLink("Pending(Lab) Request", "Index", "UserTables", null, null)</li>
+                            <li>@Html.ActionLink("Pending(Doctor) Request", "Index", "UserTables", null, null)</li>
+                            <li>@Html.ActionLink("All Doctors ", "GetAllDoctors", "PatientAppoint", null, null)</li>
+                            <li>@Html.ActionLink("All Lab's", "GetAllLabs", "PatientAppoint", null, null)</li>
+
+
+
+
+                            <li>@Html.ActionLink("All Patients's", "GetAllDoctors", "PatientAppoint", null, null)</li>
+
+                        }
+                        else if (value == 2)
+                        {
+                            //Doctor User Access
+                            <li>@Html.ActionLink("Time Slots     ", "Index", "DoctorTimeSlotTables", null, null)</li>
+                            <li>@Html.ActionLink("Current Appointment ", "CurrentAppoint", "DoctorApprove", null, null)</li>
+
+                            <li>@Html.ActionLink("Pending Appointment ", "PendingAppoint", "DoctorApprove", null, null)</li>
+                            <li>@Html.ActionLink("Complete Appointment ", "CompleteAppointment", "DoctorApprove", null, null)</li>
+                            <li>@Html.ActionLink("All Appointment ", "AllAppoint", "DoctorApprove", null, null)</li>
+
+
+
+                        }
+                        else if (value == 3)
+                        {
+                            //Lab User Access
+                            <li>@Html.ActionLink("Time Slot Setting", "Index", "LabTimeSlotTables", null, null)</li>
+                            <li>@Html.ActionLink("All Test", "LabAllTest", "LabSetting", null, null)</li>
+
+                            <li>@Html.ActionLink("Add Test", "AddTest", "LabSetting", null, null)</li>
+                            <li>@Html.ActionLink("Current Appointment ", "CurrentAppoint", "LabApprove", null, null)</li>
+                            <li>@Html.ActionLink("Pending Appointment ", "PendingAppoint", "LabApprove", null, null)</li>
+                           
+                            <li>@Html.ActionLink("Complete Appointment ", "CompleteAppointment", "LabApprove", null, null)</li>
+                            <li>@Html.ActionLink("All Appointment ", "AllAppoint", "LabApprove", null, null)</li>
+
+                        }
+                        else if (value == 4)
+                        {
+                            //Patient User Access
+                            <li>@Html.ActionLink("All Lab", "GetAllLabs", "PatientAppoint", null, null)</li>
+                            <li>@Html.ActionLink("All Doctors", "GetAllDoctors", "PatientAppoint", null, null)</li>
+                            <li>@Html.ActionLink("All Test", "GetAllTest", "LabSetting", null, null)</li>
+
+
+
+                            <li>@Html.ActionLink("Pending (Lab) Appointment ", "PendingAppoint", "LabAppointmentStatus", null, null)</li>
+                            <li>@Html.ActionLink("Current (Lab) Appointment ", "CurrentAppoint", "LabAppointmentStatus", null, null)</li>
+                            <li>@Html.ActionLink("Cancel (Lab) Appointment ", "CancelAppoint", "LabAppointmentStatus", null, null)</li>
+                            <li>@Html.ActionLink("Complete (Lab) Appointment ", "CompletedAppoint", "LabAppointmentStatus", null, null)</li>
+                            <li>@Html.ActionLink("All (Lab) Appointment ", "AllAppoint", "LabAppointmentStatus", null, null)</li>
+
+
+
+                            <li>@Html.ActionLink("All (Doctor) Appointment ", "AllAppoint", "DoctorAppointmentStatus", null, null)</li>
+                            <li>@Html.ActionLink("Pending (Doctor) Appointment ", "PendingAppoint", "DoctorAppointmentStatus", null, null)</li>
+                            <li>@Html.ActionLink("Current (Doctor) Appointment ", "CurrentAppoint", "DoctorAppointmentStatus", null, null)</li>
+                            <li>@Html.ActionLink("Cancel (Doctor) Appointment ", "CancelAppoint", "DoctorAppointmentStatus", null, null)</li>
+                            <li>@Html.ActionLink("Complete (Doctor) Appointment ", "CompletedAppoint", "DoctorAppointmentStatus", null, null)</li>
+
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+                <li>@Html.ActionLink("Logout", "LogoutUser", "Home", null, null)</li>
+
+
+
+
+            </ul>
+        </nav>
+    </aside>
+
+    <div id="main-wrapper">
+        <div class="main-content">
+            <section id="welcome">
+                <div class="content-header">
+                    <h1>Online Hospital</h1>
+                </div>
+
+
+                @RenderBody()
+
+            </section>
+
+
+        </div>
+    </div>
+    @*Essential JavaScript Libraries
+        ==============================================*@
+  
+
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginTemplate/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginTemplate/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/LoginTemplate/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginTemplate/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginTemplate/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/LoginTemplate/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginTemplate/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/LoginTemplate/js/main.js"></script>
+
+
+
+</body>
+</html>

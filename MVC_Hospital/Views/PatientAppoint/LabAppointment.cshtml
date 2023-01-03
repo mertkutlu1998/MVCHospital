@@ -1,0 +1,72 @@
+﻿@model DatabaseLayer.LabAppointTable
+
+@{
+    ViewBag.Title = "Appointment";
+}
+
+<h2>Lab Appointment Ssubmission Form</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.LabTestID)
+        @Html.HiddenFor(model => model.LabID)
+        @Html.HiddenFor(model => model.PatientID)
+        @*ıdlerı burada yakaladık*@
+
+
+
+
+        <h2 class="text-success">@ViewBag.Message</h2>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LabTimeSlotID, "Select Time Slot", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*time slotu dropdownlist olarak boyle gosterdık*@
+                @Html.DropDownList("LabTimeSlotID", null, "Lab Time", htmlAttributes: new { @class = "form-control" })
+
+               
+                @Html.ValidationMessageFor(model => model.LabTimeSlotID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AppointDate, "Appointment Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AppointDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AppointDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, "Enter Reason", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TransectionID, "Transection Number", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TransectionID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TransectionID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit Appointment Request" class="btn btn-success" />
+
+            </div>
+        </div>
+    </div>
+}
+

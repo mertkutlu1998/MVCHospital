@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+    @*Required meta tags*@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>@ViewBag.Title</title>
+    @*Bootstrap CSS*@
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/flaticon.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/vendors/animate-css/animate.css">
+    @*main css*@
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/style.css">
+    <link rel="stylesheet" href="~/Content/FrontTemplate/css/responsive.css">
+</head>
+
+
+<body>
+
+
+    <div class="container body-content">
+        <section class="appointment-area">
+
+            <div class="container">
+
+                <div class="appointment-inner accordion">
+                    <div class="row">
+
+                        <div class="col-md-12  ">
+                            <div class="appointment-form">
+
+                              @RenderBody()
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+
+
+
+    @*Optional JavaScript
+        jQuery first, then Popper.js, then Bootstrap JS*@
+    <script src="~/Content/FrontTemplate/js/popper.js"></script>
+    <script src="~/Content/FrontTemplate/js/bootstrap.min.js"></script>
+    <script src="~/Content/FrontTemplate/js/stellar.js"></script>
+    <script src="~/Content/FrontTemplate/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/Content/FrontTemplate/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/Content/FrontTemplate/js/waypoints.min.js"></script>
+    <script src="~/Content/FrontTemplate/js/mail-script.js"></script>
+    <script src="~/Content/FrontTemplate/js/contact.js"></script>
+    <script src="~/Content/FrontTemplate/js/jquery.form.js"></script>
+    <script src="~/Content/FrontTemplate/js/jquery.validate.min.js"></script>
+    <script src="~/Content/FrontTemplate/js/mail-script.js"></script>
+    <script src="~/Content/FrontTemplate/js/theme.js"></script>
+
+</body>
+</html>

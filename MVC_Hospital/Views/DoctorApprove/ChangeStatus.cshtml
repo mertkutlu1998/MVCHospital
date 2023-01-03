@@ -1,0 +1,85 @@
+﻿@model DatabaseLayer.DoctorAppointTable
+
+@{
+    ViewBag.Title = "ChangeStatus";
+}
+
+<h2>Change PendingAppoint Status</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>DoctorAppointTable</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.DoctorAppointID)
+    @Html.HiddenFor(model => model.DoctorID)
+    @Html.HiddenFor(model => model.PatientID)
+    @Html.HiddenFor(model => model.TransectionID)
+    @Html.HiddenFor(model => model.IsChecked)
+    @Html.HiddenFor(model => model.DoctorComment)
+    @Html.HiddenFor(model => model.Description)
+
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.DoctorID, "DoctorID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DoctorID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DoctorID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.PatientID, "PatientID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PatientID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PatientID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    <div class="form-group">
+        @Html.LabelFor(model => model.AppointDate, "Appointment Date", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.AppointDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AppointDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DoctorTimeSlotID, "Time Slot", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("DoctorTimeSlotID", null, "Select Time Slot", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DoctorTimeSlotID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsFeeSubmit, "Is Fee Submitted", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsFeeSubmit)
+                @Html.ValidationMessageFor(model => model.IsFeeSubmit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success" />
+            @Html.ActionLink("Back to List", "PendingAppoint")
+
+        </div>
+    </div>
+</div>
+}
+
+
+

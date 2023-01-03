@@ -1,0 +1,89 @@
+﻿@model DatabaseLayer.PatientTable
+
+@{
+    ViewBag.Title = "Create Patient";
+    Layout = "~/Views/Shared/LPD_Layout.cshtml";}
+
+
+@using (Html.BeginForm("AddPatient", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Patient Profile</h4>
+    <hr />
+    <p>@ViewBag.Message</p>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+   
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "Full Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ContactNo, "Contact Number", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ContactNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ContactNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.GenderID, "Select Gender", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("GenderID", null, "Gender", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.GenderID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, "Email Adress", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LogFile, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <span class="btn btn-default btn-file">
+                @Html.TextBoxFor(model => model.LogFile, new { type = "file" })
+            </span>
+        </div>
+    </div>
+
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="genric-btn success" />
+            @Html.ActionLink("Back", "Login", "Home", null, new { @class = "genric-btn default" })
+
+        </div>
+    </div>
+</div>
+}
+

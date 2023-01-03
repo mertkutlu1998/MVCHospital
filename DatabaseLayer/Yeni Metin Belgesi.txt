@@ -1,0 +1,2 @@
+ [NotMapped]
+        public HttpPostedFileBase LogFile { get; set; }s

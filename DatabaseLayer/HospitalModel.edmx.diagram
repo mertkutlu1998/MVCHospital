@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="67b2454dd92940af847120ef1b7eaea3" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="Mvc_HospitalModel.AccountTypeTable" Width="1.5" PointX="6" PointY="7.75" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.DoctorAppointTable" Width="1.5" PointX="12.75" PointY="12.375" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.DoctorTable" Width="1.5" PointX="5.25" PointY="10.125" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.DoctorTimeSlotTable" Width="1.5" PointX="7.5" PointY="15.625" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.GenderTable" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.LabAppointTable" Width="1.5" PointX="15.75" PointY="10.625" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.LabTable" Width="1.5" PointX="8.25" PointY="10.5" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.LabTestDetailsTable" Width="1.5" PointX="12.75" PointY="8.625" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.LabTestTable" Width="1.5" PointX="10.5" PointY="13.125" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.LabTimeSlotTable" Width="1.5" PointX="10.5" PointY="9.75" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.PatientTable" Width="1.5" PointX="10.5" PointY="16.625" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.PatientTestDetailTable" Width="1.5" PointX="18" PointY="10.5" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.UserTable" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="Mvc_HospitalModel.UserTypeTable" Width="1.5" PointX="0.75" PointY="11.75" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabTable_AccountTypeTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_DoctorAppointTable_DoctorTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_DoctorAppointTable_DoctorTimeSlotTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_DoctorAppointTable_PatientTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_DoctorTable_GenderTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_DoctorTable_UserTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_DoctorTimeSlotTable_DoctorTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_PatientTable_GenderTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabAppointTable_LabTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabAppointTable_LabTestTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabAppointTable_LabTimeSlotTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabAppointTable_PatientTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_PatientTestDetailTable_LabAppointTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabTable_UserTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabTestDetailsTable_LabTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabTestTable_LabTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabTimeSlotTable_LabTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_LabTestDetailsTable_LabTestTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_PatientTestDetailTable_LabTestDetailsTable" />
+        <AssociationConnector Association="Mvc_HospitalModel.FK_UserTable_UserTypeTable" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

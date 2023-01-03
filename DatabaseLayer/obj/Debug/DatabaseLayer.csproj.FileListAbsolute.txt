@@ -1,0 +1,12 @@
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\bin\Debug\DatabaseLayer.dll
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\bin\Debug\DatabaseLayer.pdb
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.AssemblyReference.cache
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CoreCompileInputs.cache
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\obj\Debug\DatabaseLayer.dll
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\obj\Debug\DatabaseLayer.pdb
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\bin\Debug\DatabaseLayer.dll.config
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\bin\Debug\EntityFramework.dll
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\bin\Debug\EntityFramework.xml
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ilker\Desktop\Hospital\MVC_Hospital\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CopyComplete

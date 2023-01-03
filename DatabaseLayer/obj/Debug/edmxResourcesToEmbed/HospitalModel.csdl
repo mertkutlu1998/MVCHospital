@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Mvc_HospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Mvc_HospitalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccountTypeTables" EntityType="Mvc_HospitalModel.AccountTypeTable" />
+    <EntitySet Name="DoctorAppointTables" EntityType="Mvc_HospitalModel.DoctorAppointTable" />
+    <EntitySet Name="DoctorTables" EntityType="Mvc_HospitalModel.DoctorTable" />
+    <EntitySet Name="DoctorTimeSlotTables" EntityType="Mvc_HospitalModel.DoctorTimeSlotTable" />
+    <EntitySet Name="GenderTables" EntityType="Mvc_HospitalModel.GenderTable" />
+    <EntitySet Name="LabAppointTables" EntityType="Mvc_HospitalModel.LabAppointTable" />
+    <EntitySet Name="LabTables" EntityType="Mvc_HospitalModel.LabTable" />
+    <EntitySet Name="LabTestDetailsTables" EntityType="Mvc_HospitalModel.LabTestDetailsTable" />
+    <EntitySet Name="LabTestTables" EntityType="Mvc_HospitalModel.LabTestTable" />
+    <EntitySet Name="LabTimeSlotTables" EntityType="Mvc_HospitalModel.LabTimeSlotTable" />
+    <EntitySet Name="PatientTables" EntityType="Mvc_HospitalModel.PatientTable" />
+    <EntitySet Name="PatientTestDetailTables" EntityType="Mvc_HospitalModel.PatientTestDetailTable" />
+    <EntitySet Name="sysdiagrams" EntityType="Mvc_HospitalModel.sysdiagram" />
+    <EntitySet Name="UserTables" EntityType="Mvc_HospitalModel.UserTable" />
+    <EntitySet Name="UserTypeTables" EntityType="Mvc_HospitalModel.UserTypeTable" />
+    <AssociationSet Name="FK_LabTable_AccountTypeTable" Association="Mvc_HospitalModel.FK_LabTable_AccountTypeTable">
+      <End Role="AccountTypeTable" EntitySet="AccountTypeTables" />
+      <End Role="LabTable" EntitySet="LabTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorAppointTable_DoctorTable" Association="Mvc_HospitalModel.FK_DoctorAppointTable_DoctorTable">
+      <End Role="DoctorTable" EntitySet="DoctorTables" />
+      <End Role="DoctorAppointTable" EntitySet="DoctorAppointTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorAppointTable_DoctorTimeSlotTable" Association="Mvc_HospitalModel.FK_DoctorAppointTable_DoctorTimeSlotTable">
+      <End Role="DoctorTimeSlotTable" EntitySet="DoctorTimeSlotTables" />
+      <End Role="DoctorAppointTable" EntitySet="DoctorAppointTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorAppointTable_PatientTable" Association="Mvc_HospitalModel.FK_DoctorAppointTable_PatientTable">
+      <End Role="PatientTable" EntitySet="PatientTables" />
+      <End Role="DoctorAppointTable" EntitySet="DoctorAppointTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorTable_GenderTable" Association="Mvc_HospitalModel.FK_DoctorTable_GenderTable">
+      <End Role="GenderTable" EntitySet="GenderTables" />
+      <End Role="DoctorTable" EntitySet="DoctorTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorTable_UserTable" Association="Mvc_HospitalModel.FK_DoctorTable_UserTable">
+      <End Role="UserTable" EntitySet="UserTables" />
+      <End Role="DoctorTable" EntitySet="DoctorTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorTimeSlotTable_DoctorTable" Association="Mvc_HospitalModel.FK_DoctorTimeSlotTable_DoctorTable">
+      <End Role="DoctorTable" EntitySet="DoctorTables" />
+      <End Role="DoctorTimeSlotTable" EntitySet="DoctorTimeSlotTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientTable_GenderTable" Association="Mvc_HospitalModel.FK_PatientTable_GenderTable">
+      <End Role="GenderTable" EntitySet="GenderTables" />
+      <End Role="PatientTable" EntitySet="PatientTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabAppointTable_LabTable" Association="Mvc_HospitalModel.FK_LabAppointTable_LabTable">
+      <End Role="LabTable" EntitySet="LabTables" />
+      <End Role="LabAppointTable" EntitySet="LabAppointTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabAppointTable_LabTestTable" Association="Mvc_HospitalModel.FK_LabAppointTable_LabTestTable">
+      <End Role="LabTestTable" EntitySet="LabTestTables" />
+      <End Role="LabAppointTable" EntitySet="LabAppointTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabAppointTable_LabTimeSlotTable" Association="Mvc_HospitalModel.FK_LabAppointTable_LabTimeSlotTable">
+      <End Role="LabTimeSlotTable" EntitySet="LabTimeSlotTables" />
+      <End Role="LabAppointTable" EntitySet="LabAppointTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabAppointTable_PatientTable" Association="Mvc_HospitalModel.FK_LabAppointTable_PatientTable">
+      <End Role="PatientTable" EntitySet="PatientTables" />
+      <End Role="LabAppointTable" EntitySet="LabAppointTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientTestDetailTable_LabAppointTable" Association="Mvc_HospitalModel.FK_PatientTestDetailTable_LabAppointTable">
+      <End Role="LabAppointTable" EntitySet="LabAppointTables" />
+      <End Role="PatientTestDetailTable" EntitySet="PatientTestDetailTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTable_UserTable" Association="Mvc_HospitalModel.FK_LabTable_UserTable">
+      <End Role="UserTable" EntitySet="UserTables" />
+      <End Role="LabTable" EntitySet="LabTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTestDetailsTable_LabTable" Association="Mvc_HospitalModel.FK_LabTestDetailsTable_LabTable">
+      <End Role="LabTable" EntitySet="LabTables" />
+      <End Role="LabTestDetailsTable" EntitySet="LabTestDetailsTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTestTable_LabTable" Association="Mvc_HospitalModel.FK_LabTestTable_LabTable">
+      <End Role="LabTable" EntitySet="LabTables" />
+      <End Role="LabTestTable" EntitySet="LabTestTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTimeSlotTable_LabTable" Association="Mvc_HospitalModel.FK_LabTimeSlotTable_LabTable">
+      <End Role="LabTable" EntitySet="LabTables" />
+      <End Role="LabTimeSlotTable" EntitySet="LabTimeSlotTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabTestDetailsTable_LabTestTable" Association="Mvc_HospitalModel.FK_LabTestDetailsTable_LabTestTable">
+      <End Role="LabTestTable" EntitySet="LabTestTables" />
+      <End Role="LabTestDetailsTable" EntitySet="LabTestDetailsTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientTestDetailTable_LabTestDetailsTable" Association="Mvc_HospitalModel.FK_PatientTestDetailTable_LabTestDetailsTable">
+      <End Role="LabTestDetailsTable" EntitySet="LabTestDetailsTables" />
+      <End Role="PatientTestDetailTable" EntitySet="PatientTestDetailTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTable_UserTypeTable" Association="Mvc_HospitalModel.FK_UserTable_UserTypeTable">
+      <End Role="UserTypeTable" EntitySet="UserTypeTables" />
+      <End Role="UserTable" EntitySet="UserTables" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AccountTypeTable">
+    <Key>
+      <PropertyRef Name="AccountTypeID" />
+    </Key>
+    <Property Name="AccountTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LabTables" Relationship="Mvc_HospitalModel.FK_LabTable_AccountTypeTable" FromRole="AccountTypeTable" ToRole="LabTable" />
+  </EntityType>
+  <EntityType Name="DoctorAppointTable">
+    <Key>
+      <PropertyRef Name="DoctorAppointID" />
+    </Key>
+    <Property Name="DoctorAppointID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorID" Type="Int32" Nullable="false" />
+    <Property Name="PatientID" Type="Int32" Nullable="false" />
+    <Property Name="DoctorTimeSlotID" Type="Int32" Nullable="false" />
+    <Property Name="AppointDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsFeeSubmit" Type="Boolean" Nullable="false" />
+    <Property Name="IsChecked" Type="Boolean" Nullable="false" />
+    <Property Name="TransectionID" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DoctorComment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoctorTable" Relationship="Mvc_HospitalModel.FK_DoctorAppointTable_DoctorTable" FromRole="DoctorAppointTable" ToRole="DoctorTable" />
+    <NavigationProperty Name="DoctorTimeSlotTable" Relationship="Mvc_HospitalModel.FK_DoctorAppointTable_DoctorTimeSlotTable" FromRole="DoctorAppointTable" ToRole="DoctorTimeSlotTable" />
+    <NavigationProperty Name="PatientTable" Relationship="Mvc_HospitalModel.FK_DoctorAppointTable_PatientTable" FromRole="DoctorAppointTable" ToRole="PatientTable" />
+  </EntityType>
+  <EntityType Name="DoctorTable">
+    <Key>
+      <PropertyRef Name="DoctorID" />
+    </Key>
+    <Property Name="DoctorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Fees" Type="Double" Nullable="false" />
+    <Property Name="Splztion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ClinicAddress" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="PermanentAddress" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ClinicPhoneNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PerDayMaxAppitmnt" Type="Int32" />
+    <Property Name="Photo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="AccountTypeID" Type="Int32" Nullable="false" />
+    <Property Name="AccountNo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GenderID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DoctorAppointTables" Relationship="Mvc_HospitalModel.FK_DoctorAppointTable_DoctorTable" FromRole="DoctorTable" ToRole="DoctorAppointTable" />
+    <NavigationProperty Name="GenderTable" Relationship="Mvc_HospitalModel.FK_DoctorTable_GenderTable" FromRole="DoctorTable" ToRole="GenderTable" />
+    <NavigationProperty Name="UserTable" Relationship="Mvc_HospitalModel.FK_DoctorTable_UserTable" FromRole="DoctorTable" ToRole="UserTable" />
+    <NavigationProperty Name="DoctorTimeSlotTables" Relationship="Mvc_HospitalModel.FK_DoctorTimeSlotTable_DoctorTable" FromRole="DoctorTable" ToRole="DoctorTimeSlotTable" />
+  </EntityType>
+  <EntityType Name="DoctorTimeSlotTable">
+    <Key>
+      <PropertyRef Name="DoctorTimeSlotID" />
+    </Key>
+    <Property Name="DoctorTimeSlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ToTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="FromTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DoctorAppointTables" Relationship="Mvc_HospitalModel.FK_DoctorAppointTable_DoctorTimeSlotTable" FromRole="DoctorTimeSlotTable" ToRole="DoctorAppointTable" />
+    <NavigationProperty Name="DoctorTable" Relationship="Mvc_HospitalModel.FK_DoctorTimeSlotTable_DoctorTable" FromRole="DoctorTimeSlotTable" ToRole="DoctorTable" />
+  </EntityType>
+  <EntityType Name="GenderTable">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoctorTables" Relationship="Mvc_HospitalModel.FK_DoctorTable_GenderTable" FromRole="GenderTable" ToRole="DoctorTable" />
+    <NavigationProperty Name="PatientTables" Relationship="Mvc_HospitalModel.FK_PatientTable_GenderTable" FromRole="GenderTable" ToRole="PatientTable" />
+  </EntityType>
+  <EntityType Name="LabAppointTable">
+    <Key>
+      <PropertyRef Name="LabAppointID" />
+    </Key>
+    <Property Name="LabAppointID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LabTestID" Type="Int32" Nullable="false" />
+    <Property Name="PatientID" Type="Int32" Nullable="false" />
+    <Property Name="LabID" Type="Int32" Nullable="false" />
+    <Property Name="LabTimeSlotID" Type="Int32" Nullable="false" />
+    <Property Name="AppointDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsFeeSubmit" Type="Boolean" Nullable="false" />
+    <Property Name="IsComplete" Type="Boolean" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TransectionID" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LabTable" Relationship="Mvc_HospitalModel.FK_LabAppointTable_LabTable" FromRole="LabAppointTable" ToRole="LabTable" />
+    <NavigationProperty Name="LabTestTable" Relationship="Mvc_HospitalModel.FK_LabAppointTable_LabTestTable" FromRole="LabAppointTable" ToRole="LabTestTable" />
+    <NavigationProperty Name="LabTimeSlotTable" Relationship="Mvc_HospitalModel.FK_LabAppointTable_LabTimeSlotTable" FromRole="LabAppointTable" ToRole="LabTimeSlotTable" />
+    <NavigationProperty Name="PatientTable" Relationship="Mvc_HospitalModel.FK_LabAppointTable_PatientTable" FromRole="LabAppointTable" ToRole="PatientTable" />
+    <NavigationProperty Name="PatientTestDetailTables" Relationship="Mvc_HospitalModel.FK_PatientTestDetailTable_LabAppointTable" FromRole="LabAppointTable" ToRole="PatientTestDetailTable" />
+  </EntityType>
+  <EntityType Name="LabTable">
+    <Key>
+      <PropertyRef Name="LabID" />
+    </Key>
+    <Property Name="LabID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="PermanentAddress" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="AboutLab" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AccountTypeID" Type="Int32" Nullable="false" />
+    <Property Name="AccountNo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AccountTypeTable" Relationship="Mvc_HospitalModel.FK_LabTable_AccountTypeTable" FromRole="LabTable" ToRole="AccountTypeTable" />
+    <NavigationProperty Name="LabAppointTables" Relationship="Mvc_HospitalModel.FK_LabAppointTable_LabTable" FromRole="LabTable" ToRole="LabAppointTable" />
+    <NavigationProperty Name="UserTable" Relationship="Mvc_HospitalModel.FK_LabTable_UserTable" FromRole="LabTable" ToRole="UserTable" />
+    <NavigationProperty Name="LabTestDetailsTables" Relationship="Mvc_HospitalModel.FK_LabTestDetailsTable_LabTable" FromRole="LabTable" ToRole="LabTestDetailsTable" />
+    <NavigationProperty Name="LabTestTables" Relationship="Mvc_HospitalModel.FK_LabTestTable_LabTable" FromRole="LabTable" ToRole="LabTestTable" />
+    <NavigationProperty Name="LabTimeSlotTables" Relationship="Mvc_HospitalModel.FK_LabTimeSlotTable_LabTable" FromRole="LabTable" ToRole="LabTimeSlotTable" />
+  </EntityType>
+  <EntityType Name="LabTestDetailsTable">
+    <Key>
+      <PropertyRef Name="LabTestDetailID" />
+    </Key>
+    <Property Name="LabTestDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LabTestID" Type="Int32" Nullable="false" />
+    <Property Name="LabID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="MinValue" Type="Int32" Nullable="false" />
+    <Property Name="MaxValue" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LabTable" Relationship="Mvc_HospitalModel.FK_LabTestDetailsTable_LabTable" FromRole="LabTestDetailsTable" ToRole="LabTable" />
+    <NavigationProperty Name="LabTestTable" Relationship="Mvc_HospitalModel.FK_LabTestDetailsTable_LabTestTable" FromRole="LabTestDetailsTable" ToRole="LabTestTable" />
+    <NavigationProperty Name="PatientTestDetailTables" Relationship="Mvc_HospitalModel.FK_PatientTestDetailTable_LabTestDetailsTable" FromRole="LabTestDetailsTable" ToRole="PatientTestDetailTable" />
+  </EntityType>
+  <EntityType Name="LabTestTable">
+    <Key>
+      <PropertyRef Name="LabTestID" />
+    </Key>
+    <Property Name="LabTestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LabID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Double" Nullable="false" />
+    <NavigationProperty Name="LabAppointTables" Relationship="Mvc_HospitalModel.FK_LabAppointTable_LabTestTable" FromRole="LabTestTable" ToRole="LabAppointTable" />
+    <NavigationProperty Name="LabTable" Relationship="Mvc_HospitalModel.FK_LabTestTable_LabTable" FromRole="LabTestTable" ToRole="LabTable" />
+    <NavigationProperty Name="LabTestDetailsTables" Relationship="Mvc_HospitalModel.FK_LabTestDetailsTable_LabTestTable" FromRole="LabTestTable" ToRole="LabTestDetailsTable" />
+  </EntityType>
+  <EntityType Name="LabTimeSlotTable">
+    <Key>
+      <PropertyRef Name="LabTimeSlotID" />
+    </Key>
+    <Property Name="LabTimeSlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LabID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="FromTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="LabAppointTables" Relationship="Mvc_HospitalModel.FK_LabAppointTable_LabTimeSlotTable" FromRole="LabTimeSlotTable" ToRole="LabAppointTable" />
+    <NavigationProperty Name="LabTable" Relationship="Mvc_HospitalModel.FK_LabTimeSlotTable_LabTable" FromRole="LabTimeSlotTable" ToRole="LabTable" />
+  </EntityType>
+  <EntityType Name="PatientTable">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="GenderID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DoctorAppointTables" Relationship="Mvc_HospitalModel.FK_DoctorAppointTable_PatientTable" FromRole="PatientTable" ToRole="DoctorAppointTable" />
+    <NavigationProperty Name="GenderTable" Relationship="Mvc_HospitalModel.FK_PatientTable_GenderTable" FromRole="PatientTable" ToRole="GenderTable" />
+    <NavigationProperty Name="LabAppointTables" Relationship="Mvc_HospitalModel.FK_LabAppointTable_PatientTable" FromRole="PatientTable" ToRole="LabAppointTable" />
+  </EntityType>
+  <EntityType Name="PatientTestDetailTable">
+    <Key>
+      <PropertyRef Name="LabAppointDetailID" />
+    </Key>
+    <Property Name="LabAppointDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LabAppointID" Type="Int32" Nullable="false" />
+    <Property Name="LabTestDetailID" Type="Int32" Nullable="false" />
+    <Property Name="PatientValue" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LabAppointTable" Relationship="Mvc_HospitalModel.FK_PatientTestDetailTable_LabAppointTable" FromRole="PatientTestDetailTable" ToRole="LabAppointTable" />
+    <NavigationProperty Name="LabTestDetailsTable" Relationship="Mvc_HospitalModel.FK_PatientTestDetailTable_LabTestDetailsTable" FromRole="PatientTestDetailTable" ToRole="LabTestDetailsTable" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsVerifed" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DoctorTables" Relationship="Mvc_HospitalModel.FK_DoctorTable_UserTable" FromRole="UserTable" ToRole="DoctorTable" />
+    <NavigationProperty Name="LabTables" Relationship="Mvc_HospitalModel.FK_LabTable_UserTable" FromRole="UserTable" ToRole="LabTable" />
+    <NavigationProperty Name="UserTypeTable" Relationship="Mvc_HospitalModel.FK_UserTable_UserTypeTable" FromRole="UserTable" ToRole="UserTypeTable" />
+  </EntityType>
+  <EntityType Name="UserTypeTable">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserTables" Relationship="Mvc_HospitalModel.FK_UserTable_UserTypeTable" FromRole="UserTypeTable" ToRole="UserTable" />
+  </EntityType>
+  <Association Name="FK_LabTable_AccountTypeTable">
+    <End Type="Mvc_HospitalModel.AccountTypeTable" Role="AccountTypeTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabTable" Role="LabTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountTypeTable">
+        <PropertyRef Name="AccountTypeID" />
+      </Principal>
+      <Dependent Role="LabTable">
+        <PropertyRef Name="AccountTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorAppointTable_DoctorTable">
+    <End Type="Mvc_HospitalModel.DoctorTable" Role="DoctorTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.DoctorAppointTable" Role="DoctorAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorTable">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="DoctorAppointTable">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorAppointTable_DoctorTimeSlotTable">
+    <End Type="Mvc_HospitalModel.DoctorTimeSlotTable" Role="DoctorTimeSlotTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.DoctorAppointTable" Role="DoctorAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorTimeSlotTable">
+        <PropertyRef Name="DoctorTimeSlotID" />
+      </Principal>
+      <Dependent Role="DoctorAppointTable">
+        <PropertyRef Name="DoctorTimeSlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorAppointTable_PatientTable">
+    <End Type="Mvc_HospitalModel.PatientTable" Role="PatientTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.DoctorAppointTable" Role="DoctorAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientTable">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="DoctorAppointTable">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorTable_GenderTable">
+    <End Type="Mvc_HospitalModel.GenderTable" Role="GenderTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.DoctorTable" Role="DoctorTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderTable">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="DoctorTable">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorTable_UserTable">
+    <End Type="Mvc_HospitalModel.UserTable" Role="UserTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.DoctorTable" Role="DoctorTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="DoctorTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorTimeSlotTable_DoctorTable">
+    <End Type="Mvc_HospitalModel.DoctorTable" Role="DoctorTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.DoctorTimeSlotTable" Role="DoctorTimeSlotTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorTable">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="DoctorTimeSlotTable">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientTable_GenderTable">
+    <End Type="Mvc_HospitalModel.GenderTable" Role="GenderTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.PatientTable" Role="PatientTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderTable">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="PatientTable">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabAppointTable_LabTable">
+    <End Type="Mvc_HospitalModel.LabTable" Role="LabTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabAppointTable" Role="LabAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTable">
+        <PropertyRef Name="LabID" />
+      </Principal>
+      <Dependent Role="LabAppointTable">
+        <PropertyRef Name="LabID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabAppointTable_LabTestTable">
+    <End Type="Mvc_HospitalModel.LabTestTable" Role="LabTestTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabAppointTable" Role="LabAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTestTable">
+        <PropertyRef Name="LabTestID" />
+      </Principal>
+      <Dependent Role="LabAppointTable">
+        <PropertyRef Name="LabTestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabAppointTable_LabTimeSlotTable">
+    <End Type="Mvc_HospitalModel.LabTimeSlotTable" Role="LabTimeSlotTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabAppointTable" Role="LabAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTimeSlotTable">
+        <PropertyRef Name="LabTimeSlotID" />
+      </Principal>
+      <Dependent Role="LabAppointTable">
+        <PropertyRef Name="LabTimeSlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabAppointTable_PatientTable">
+    <End Type="Mvc_HospitalModel.PatientTable" Role="PatientTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabAppointTable" Role="LabAppointTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatientTable">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="LabAppointTable">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientTestDetailTable_LabAppointTable">
+    <End Type="Mvc_HospitalModel.LabAppointTable" Role="LabAppointTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.PatientTestDetailTable" Role="PatientTestDetailTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabAppointTable">
+        <PropertyRef Name="LabAppointID" />
+      </Principal>
+      <Dependent Role="PatientTestDetailTable">
+        <PropertyRef Name="LabAppointID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTable_UserTable">
+    <End Type="Mvc_HospitalModel.UserTable" Role="UserTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabTable" Role="LabTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="LabTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTestDetailsTable_LabTable">
+    <End Type="Mvc_HospitalModel.LabTable" Role="LabTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabTestDetailsTable" Role="LabTestDetailsTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTable">
+        <PropertyRef Name="LabID" />
+      </Principal>
+      <Dependent Role="LabTestDetailsTable">
+        <PropertyRef Name="LabID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTestTable_LabTable">
+    <End Type="Mvc_HospitalModel.LabTable" Role="LabTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabTestTable" Role="LabTestTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTable">
+        <PropertyRef Name="LabID" />
+      </Principal>
+      <Dependent Role="LabTestTable">
+        <PropertyRef Name="LabID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTimeSlotTable_LabTable">
+    <End Type="Mvc_HospitalModel.LabTable" Role="LabTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabTimeSlotTable" Role="LabTimeSlotTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTable">
+        <PropertyRef Name="LabID" />
+      </Principal>
+      <Dependent Role="LabTimeSlotTable">
+        <PropertyRef Name="LabID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabTestDetailsTable_LabTestTable">
+    <End Type="Mvc_HospitalModel.LabTestTable" Role="LabTestTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.LabTestDetailsTable" Role="LabTestDetailsTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTestTable">
+        <PropertyRef Name="LabTestID" />
+      </Principal>
+      <Dependent Role="LabTestDetailsTable">
+        <PropertyRef Name="LabTestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientTestDetailTable_LabTestDetailsTable">
+    <End Type="Mvc_HospitalModel.LabTestDetailsTable" Role="LabTestDetailsTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.PatientTestDetailTable" Role="PatientTestDetailTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabTestDetailsTable">
+        <PropertyRef Name="LabTestDetailID" />
+      </Principal>
+      <Dependent Role="PatientTestDetailTable">
+        <PropertyRef Name="LabTestDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTable_UserTypeTable">
+    <End Type="Mvc_HospitalModel.UserTypeTable" Role="UserTypeTable" Multiplicity="1" />
+    <End Type="Mvc_HospitalModel.UserTable" Role="UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTypeTable">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

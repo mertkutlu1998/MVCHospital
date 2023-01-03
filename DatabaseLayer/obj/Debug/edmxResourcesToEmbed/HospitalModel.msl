@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Mvc_HospitalModelStoreContainer" CdmEntityContainer="Mvc_HospitalEntities">
+    <EntitySetMapping Name="AccountTypeTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.AccountTypeTable">
+        <MappingFragment StoreEntitySet="AccountTypeTable">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AccountTypeID" ColumnName="AccountTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoctorAppointTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.DoctorAppointTable">
+        <MappingFragment StoreEntitySet="DoctorAppointTable">
+          <ScalarProperty Name="DoctorComment" ColumnName="DoctorComment" />
+          <ScalarProperty Name="TransectionID" ColumnName="TransectionID" />
+          <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+          <ScalarProperty Name="IsFeeSubmit" ColumnName="IsFeeSubmit" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AppointDate" ColumnName="AppointDate" />
+          <ScalarProperty Name="DoctorTimeSlotID" ColumnName="DoctorTimeSlotID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="DoctorAppointID" ColumnName="DoctorAppointID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoctorTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.DoctorTable">
+        <MappingFragment StoreEntitySet="DoctorTable">
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="AccountTypeID" ColumnName="AccountTypeID" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="PerDayMaxAppitmnt" ColumnName="PerDayMaxAppitmnt" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ClinicPhoneNo" ColumnName="ClinicPhoneNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+          <ScalarProperty Name="ClinicAddress" ColumnName="ClinicAddress" />
+          <ScalarProperty Name="Splztion" ColumnName="Splztion" />
+          <ScalarProperty Name="Fees" ColumnName="Fees" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoctorTimeSlotTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.DoctorTimeSlotTable">
+        <MappingFragment StoreEntitySet="DoctorTimeSlotTable">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="DoctorTimeSlotID" ColumnName="DoctorTimeSlotID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenderTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.GenderTable">
+        <MappingFragment StoreEntitySet="GenderTable">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabAppointTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.LabAppointTable">
+        <MappingFragment StoreEntitySet="LabAppointTable">
+          <ScalarProperty Name="TransectionID" ColumnName="TransectionID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+          <ScalarProperty Name="IsFeeSubmit" ColumnName="IsFeeSubmit" />
+          <ScalarProperty Name="AppointDate" ColumnName="AppointDate" />
+          <ScalarProperty Name="LabTimeSlotID" ColumnName="LabTimeSlotID" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="LabTestID" ColumnName="LabTestID" />
+          <ScalarProperty Name="LabAppointID" ColumnName="LabAppointID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.LabTable">
+        <MappingFragment StoreEntitySet="LabTable">
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="AccountTypeID" ColumnName="AccountTypeID" />
+          <ScalarProperty Name="AboutLab" ColumnName="AboutLab" />
+          <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabTestDetailsTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.LabTestDetailsTable">
+        <MappingFragment StoreEntitySet="LabTestDetailsTable">
+          <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+          <ScalarProperty Name="MinValue" ColumnName="MinValue" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="LabTestID" ColumnName="LabTestID" />
+          <ScalarProperty Name="LabTestDetailID" ColumnName="LabTestDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabTestTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.LabTestTable">
+        <MappingFragment StoreEntitySet="LabTestTable">
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="LabTestID" ColumnName="LabTestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabTimeSlotTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.LabTimeSlotTable">
+        <MappingFragment StoreEntitySet="LabTimeSlotTable">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LabID" ColumnName="LabID" />
+          <ScalarProperty Name="LabTimeSlotID" ColumnName="LabTimeSlotID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatientTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.PatientTable">
+        <MappingFragment StoreEntitySet="PatientTable">
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatientTestDetailTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.PatientTestDetailTable">
+        <MappingFragment StoreEntitySet="PatientTestDetailTable">
+          <ScalarProperty Name="PatientValue" ColumnName="PatientValue" />
+          <ScalarProperty Name="LabTestDetailID" ColumnName="LabTestDetailID" />
+          <ScalarProperty Name="LabAppointID" ColumnName="LabAppointID" />
+          <ScalarProperty Name="LabAppointDetailID" ColumnName="LabAppointDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.UserTable">
+        <MappingFragment StoreEntitySet="UserTable">
+          <ScalarProperty Name="IsVerifed" ColumnName="IsVerifed" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypeTables">
+      <EntityTypeMapping TypeName="Mvc_HospitalModel.UserTypeTable">
+        <MappingFragment StoreEntitySet="UserTypeTable">
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
